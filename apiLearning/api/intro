@@ -1,0 +1,745 @@
+pc program _> Software နဲ့ Service 
+Software ဆိုတဲ့ထဲမှာ System Software, Desktop Solution, Web Application, Mobile App
+Service ဆိုတာကတော့ လူဖြZစ်တဲ့ User က ထိတွေ့အသုံးပြုမှာ မဟုတ်ဘဲ၊ အခြားကွန်ပျူတာပရိုဂရမ်တွေ
+က အသုံးပြုမယ့် အရာတွေပါ။
+မ် A က ပရိုဂရမ် B ကို ဆက်သွယ်အသုံးပြုပြီး အလုပ်လုပ်နေပြီဆို
+ရင် ပရိုဂရမ် B ဟာ Service 
+ဆက်သွယ်ရေးနည်းပညာတစ်ခုကို ကြားခံလိုအပ်ပါတယ်။
+HTTP, FTP, POP/SMTP, XMPP   XML-RPC, SOAP
+
+ HTTP ဟာ Web Technology တစ်ခုဖြZစ်လို့ HTTP အသုံးပြု 
+ထားတဲ့ Service တွေကို Web Service လို့လည်း ခေါ်ကြပါတယ် ။
+API ကို ကိုယ်ကသိပြီး သတ်မှတ်ချက်အတိုင်း ရယူ
+အသုံးပြုရပါမယ
+Service တွေZန်တီးပြီး ပေးချင်တာဆိုရင် ကိုယ့်ဘက်က အသုံးပြုနည်း API
+ကို သတ်မှတ်ပေးရပါတယ်။
+
+Service က လက်တွေ့အလုပ်လုပ်တဲ့ ပရိုဂရမ်ဖြZစ်ပြီးတော့၊ API
+က အဲ့ဒီ Service ကို ရယူအသုံးပြုလိုတဲ့အခါ အသုံးပြုရတဲ့နည်းလမ်း ဖြZစ်ပါတယ်။
+
+။ Products တွေလိုချင်ရင် /products ဆိုတဲ့ URL သုံးရမယ်လို့ သတ်မှတ်ထားရင် အဲ့ဒီ
+/products ဆိုတဲ့ URL ကို API လို့သဘောထားပြီး အခြားပရိုဂရမ်တွေက အသုံးပြုရမှာပါ။
+
+ HTTP
+Request တွေမှာ Request Method တွေRequest Headers တွေURL တွေပေါင်းစပ်ပါဝင်ပါတယ်။ URL
+ဆိုတာ HTTP Request ရဲ့ အစိတ်အပိုင်းတစ်ခုသာ ဖြZစ်ပါတယ်။
+
+ဆက်သွယ်မှု စတင်ပြုလုပ်သူကို Client လို့ ခေါ်ပြီး၊ လက်ခံတုံ့ပြန်သူကို Server
+
+Client ကို JavaScript နဲ့
+Zန်တီးပြီး Server ကို PHP
+
+HTTP ကိုအသုံးပြုကြတဲ့ထဲက ထင်ရှားမြင်သာတဲ့ Client ပရိုဂရမ်တွေကတော့ ကျွန်တော်တို့ နေစဉ်သုံးနေ
+တဲ့ Chrome, Firefox, Edge စတဲ့ Web Browser တွေပါ။
+
+Google, Facebook စတဲ့
+Server တွေကို HTTP အသုံးပြုပြီး ဆက်သွယ
+========================================================================================
+
+http request part 4====>
+1. Request Method
+2. Request URL
+3. Request Headers
+4. Request Body
+
+1. METHOD
+POST
+2. URL
+/products
+3. HEADERS
+Content-Type: application/json
+Accept: application/json
+4. BODY
+{ name:"Book", price:4.99, category:15 }
+
+
+METHOD ကတော့ ဆက်သွယ်မှုကို ပြုလုပ်ရ
+တဲ့ ရည်ရွယ်ချက်ပါ။ Data လိုချင်လို့လား။ Data ပို့ချင်တာလား။ Data ပြင်စေချင်တာလား။
+resource loe kall tr DATA KA
+Data, Resource, Content, Document, Object SAME
+
+HEADERS ကတော့ ဆက်သွယ်မှု
+ဆိုင်ရာ အချက်အလက်များ ဖြZစ်ပါတယ်။ ဘယ်လိုပုံစံနဲ့ လိုချင်တာလဲ။ ဘာကြောင့်လိုချင်တာလဲ။
+
+BODY ကတော့ Client ဘက်က ပေးပို့လိုတဲ့ အချက်အလက်တွေဖြZစ်ပါတယ်။ ပေး
+ပို့လိုတဲ့ Data မရှိတဲ့အခြေအနေမှာ Body မပါတဲ့ Request တွေဆိုတာလည်း ရှိနိုင်ပါတယ်။
+
+
+ Request Methods (၉) မျိုး
+
+ 1. GET – Client က Server ထံကနေ အချက်အလက်တွေရယူလိုတဲ့အခါ GET Method ကို
+အသုံးပြုရပါတယ်။
+
+2. POST - Client က Server ထံ အချက်အလက်တွေပေးပို့လိုတဲ့အခါ POST Method ကို အသုံးပြု
+ရပါတယ်။ ရိုးရိုး Web Application တွေမှာ POST ကို အချက်အလက်သစ် ပေးပို့Zို့ရော၊ ပြင်ဆင်Zို့
+ ရော၊ ပယ်Zျက်Zို့ပါ အသုံးပြုကြပါတယ်။ ဒါပေမယ့် API မှာတော့ POST Method ကို
+အချက်အလက်သစ်တွေ ပေးပို့Zို့အတွက်သာ အသုံးပြုကြလေ့ ရှိပါတယ
+
+3. PUT – Client က Server မှာရှိတဲ့ အချက်အလက်တွေကိုအစားထိုးစေလိုတဲ့အခါ PUT Method
+ကိုအသုံးပြုရပါတယ်။ PUT Method ကို
+Update လုပ်ချင်တဲ့အခါ အသုံးပြုရ
+4.PATCH – Client က Server မှာရှိတဲ့ အချက်အလက်တစ်စိတ်တစ်ပိုင်းကိုပြောင်းစေလိုတဲ့အခါ
+PATCH Method ကို အသုံးပြုရပါတယ်။
+
+နဂိုရှိနေ
+တဲ့ အချက်အလက်ကို၊ ပေးလိုက်တဲ့ အချက်အလက်သစ်နဲ့ အစားထိုးခြင်းအားဖြZင့် ပြောင်းစေလို
+ ရင် PUT ကိုသုံးပြီး၊ နဂိုရှိနေတဲ့ အချက်အလက်မှာ တစ်စိတ်တစ်ပိုင်းပဲ ရွေးထုတ်ပြင်ပေးစေလိုရင်
+ PATCH ကို သုံးရတာပါ။
+
+ 5.DELETE – Client က Server မှာရှိတဲ့ အချက်အလက်တွေ ပယ်Zျက်စေလိုတဲ့အခါ DELETE
+Method ကို အသုံးပြုရပါတယ်။
+
+6. OPTIONS – Client နဲ့ Server ကြား သဘောတူညီချက်ယူတဲ့ ဆက်သွယ်မှုတွေကို OPTIONS
+Method နဲ့ ပြုလုပ်ရပါတယ်။Client က ဆက်သွယ်ခွင့်
+ရှိရဲ့လား လှမ်းမေးတဲ့အခါ Server က Username, Password လိုတယ်လို့ ပြန်ပြော(Request မဟုတ်ဘဲ အကြို အမေးအဖြေ လုပ်တဲ့
+Preflight Request)
+
+7. HEAD – GET Method နဲ့ အတူတူပါပဲ။ ကွာသွားတာကတော့ Server က Response ပြန်ပေးတဲ့
+အခါ Headers ပဲပေးပါ၊ Body မလိုချင်ပါဘူးလို့ ပြောလိုက်တာပါ။
+
+8.CONNECT – ဒီ Method ကတော့ API မှာ မသုံးကြပါဘူး။ ရှိမှန်းသိအောင်သာ ထည့်ပြောထား
+ထာပါ။ HTTP Proxy တွေအတွက
+
+9. TRACE – Client ပို့လိုက်တဲ့အတိုင်းပဲ Server က ပြန်ပို့ပေးစေလိုတဲ့အခါ TRACE Method
+
+
+2 URL
+Request Headers
+
+• Accept
+• Accept-Encoding
+• Authorization
+• Cache-Control
+• Content-Type
+• Cookie
+• ETag
+• If-Modified-Since
+• Referer
+• User-Agent
+
+ကိုယ်တိုင်တိုက်ရိုက် မကြာခဏ စီမ===Accept,
+Content-Type နဲ့ Authorization
+
+
+===>
+Content-Type Header ကနေစပြောပါမယ်။ Content-Type Header မှာ Client က ပေးပို့မယ့်
+Request Body ရဲ့ Content အမျိုးအစားကို သတ်မှတ
+
+• image/jpeg
+• image/png
+• image/svg+xml
+• text/plain
+• text/html
+• application/javascript
+• application/json
+• application/xml
+• application/x-www-form-urlencoded
+ Content Type (MIME 
+ 
+ ====>
+ 3.header
+ Accept Header ကတော့ ပြောင်းပြန်ပါ။ Client ကပြန်လိုချင်တဲ့ Content Type ကို သတ်မှတ
+
+ Content-Type က application/json ဖြZစ်နေ
+သလို Accept ကလည်း application/json ဖြZစ်နေတာကို တွေ့ရမှာ ဖြZစ်ပါတယ်။ အဓိပ္ပါယ်
+ကတော့ Client ပေးပို့မှာ JSON ဖြZစ်သလို Client က ပြန်လိုချင်တာလည်း JSON ပဲ လိုချင
+
+။ HTTP ကို သုံးကြတာချင်းတူလို့ အပြန်အလှန် ဆက်သွယ်နိုင်တယ် ဆိုပေမယ့် 
+သုံးတဲ့ Data Format မတူရင် သူပေးတဲ့ Data ကို ကိုယ်နားမလည်၊ ကိုယ်ပေးတဲ့ Data ကို သူနားမလည် 
+ဖြZစ်နိုင်ပါတယ်။
+
+ Request Body ဟာ JSON Format ဖြZစ်
+ရမှာ ဖြZစ်ပြီးတော့ Response Body ဟာလည်း JSON Format ဖြZစ်ရမှာပဲ ဖြZစ်ပါတယ်။
+
+JSON အပြင်ဖြZည့်စွက်မှတ်သားသင့်တဲ့ Format ကတော့ URL Encode Format
+
+
+ Key1=Value1&Key2=Value2
+ name=John%20Doe&age=22&email=john%40gmail.com
+  Space နဲ့ Special Character တွေကို အသုံးပြုခွင့်မ
+ရ
+
+John%20Doe ကို Decode ပြန်လုပ်လိုက်ရင် John Doe ကိုရမှာ ဖြZစ်ပါတယ်။
+%40 ကတော့ @ ဖြZစ
+
+ JavaScript မှာ
+encodeURIComponent() ကိုသုံးပြီးတော့ ရိုးရိုး String ကို URL Encode ပြောင်းနိုင်သလို၊
+decodeURIComponent() ကိုသုံးပြီးတော့ String ပြန်ပြောင်းနိုင်ပါတယ်။
+
+eg like this 
+$.ajax({
+url: "/products/",
+type: "POST",
+contentType:"application/x-www-form-urlencoded",
+data: "name=Book&price=8.99",
+success: function() {
+// do something
+}
+});
+==========================================================
+
+http Response part 3====>
+
+1. Status Code
+2. Response Headers
+3. Response Body
+
+
+Server က ပြန်လည်ပေးပို့တဲ့ Response တွေကလည်း ဒီလိုပုံစံ Package ko sent pay
+
+1. STATUS CODE
+201 Created
+2. HEADERS
+Content-Type: application/json
+Location: http://domain/books/3
+3. BODY
+{ id: 3, name: "Book", price: 4.99 }
+
+Status Codes----------------------------------
+Status Code တွေကို အုပ်စု (၅) စုခွဲပြီး မှတ်နိုင်ပါတယ်။
+• 1XX – လက်ခံရရှိကြောင်း အသိပေးခြင်း
+• 2XX – ဆက်သွယ်မှု အောင်မြင်ခြင်း
+• 3XX – တည်နေရာ ပြောင်းလဲခြင်း
+• 4XX – Client ကြောင့်ဖြZစ်သော Error
+• 5XX – Server ကြောင့်ဖြZစ်သော Error
+
+
+start with 1 connection Accept not working
+start with2 connection successs
+start with3 clint into location change advertise
+start with 4 connection not success error
+start with 5 also same but that is fault by Server
+
+
+201 Created – ဆက်သွယ်မှုကိုလက်ခံရရှိပြီး အချက်အလက်သစ် တည်ဆောက်အောင်မြင်တဲ့အခါ
+ပြန်ပို့ပေးရမှာပါ။ အများအားဖြZင့် POST သို့မဟုတ် PUT Method နဲ့လာတဲ့ Request တွေကို တုံ့ပြန်Zို့ပါ။
+202 Accepted – ဆက်သွယ်မှုကို အောင်မြင်စွာလက်ခံရရှိတယ်၊ လုပ်စရာရှိတာ ဆက်လုပ်ထားလိုက်
+မယ်လို့ ပြောတာပါ။ လက်ခံရရှိကြောင်းသက်သက်ပဲအကြောင်းပြန်လိုတဲ့အခါ သုံးနိုင်ပါတယ်။
+204 No Content – ဆက်သွယ်မှုကို လက်ခံရရှိတယ်၊ အောင်မြင်တယ်၊ ဒါပေမယ့် ပြန်ပို့စရာ
+အချက်အလက် မရှိတဲ့အခြေအနေမျိုးမှာ သုံးနိုင်ပါတယ်။ ဥပမာ DELETE Method နဲ့လာတဲ့ Request
+မျိုးပါ။ Zျက်လိုက်တယ်၊ အောင်မြင်တယ်၊ ဒါပေမယ့် ဘာမှပြန်မပို့တော့ဘူ
+
+301 Move Permanently – အချက်အလက်ရဲ့ တည်နေရာပြောင်းသွားကြောင်း အသိပေးZို့ သုံးပါ
+တယ်။ Redirect ဆိုတဲ့သဘောပါ။ ဥပမာ - /items ကိုလိုချင်တယ်လို့ Client က Request လုပ်လာပေ
+မယ့် /items ကမရှိဘူး၊ /products ပဲ ရှိတယ်ဆိုရင် 301 ကို Location Header နဲ့တွဲပြီး ပြန်ပို့နိုင်ပါ
+တယ်။ ဥပမာ ဒီလိုပါ။
+ Request 
+GET /items
+Content-Type: application/json
+ Response 
+301 Move Permanently
+Location: http://domain/product
+307 Temporary Redirect=> 301 nae same but temporary chg come back again 
+304 Not Modified – ဒါကအများအားဖြZင့် Cache အတွက်အသုံးပါတယ်။use in cache
+ If-Modified-Since Header ကိုသုံးပြီးတော့ အပြောင်းအလဲရှိမှပေးပါလို့
+ပြောလို့ရတယ
+
+400 Bad Request – Client ရဲ့ Request က မပြည့်စုံရင် (သို့မဟုတ်) တစ်ခုခု မှားနေရင်ပြန်ပေးတဲ့
+Error Code ပါ။
+401 Unauthorized – Client က Request လုပ်လာပေမယ့်၊ အဲ့ဒီနေရာကိုဝင်ခွင့်မရှိတဲ့အခါ ဒီ Code
+ကို Error အနေနဲ့ပေးရပါတယ်။
+
+=======
+Security မှာ Authentication နဲ့ Authorization ဆိုပြီး နှစ်မျို
+Authentication ဆိုတာ ဝင်ခွင့်ရှိမရှိစစ်တာပါ။ Login ဝင်လိုက်ရင် Authenticate
+Authorization ဆိုတာကတော့ လုပ်ခွင့်ရှိမရှိစစ်တာပါ ။ ဝင်ခွင့်ရှိရင်တောင် လုပ်ခွင့်က ရှိချင်မှ ရှိမှာပါ
+
+401 Unauthorized for Authenticate
+403 Forbidden for Authorization
+
+404 Not Found – မရှိတဲ့အရာတစ်ခုကို Client က Request လုပ်ယူZို့ကြိုးစားတဲ့အခါ ပေးရတဲ့ Error
+Request URL မှားနေတာ (သို့မဟုတ်) အရင်က မှန်ပေမယ့် အခုZျက်ထား
+
+405 Method Not Allowed – တစ်ချို့ URL တွေကို အသုံးပြုခွင့်ရှိတဲ့ Method နဲ့ မရှိတဲ့ Method
+တွေ ခွဲပြီးသတ်မှတ်ထားမယ်ဆို သတ်မှတ်ထားလို့ ရ
+ /users ဆိုတဲ့ URL အတွက် GET
+နဲ့ POST လက်ခံပေမယ့် DELETE (405)လက်မခံ
+
+409 Conflict – Database Table တစ်ခုထဲမှာ Record အသစ်တစ်ကြောင်း ထည့်လိုက်တယ်ဆိုရင်
+Auto-Increment နဲ့ ID ပြန်ရ other unique id
+ID ပေးပြီး အသစ်ဆောက်ခိုင်း pya tae error
+
+415 Unsupported Media Type–Client က လိုချင်တဲ့ Format ကို Server က Support မလုပ်ရင်
+
+418 Im a Teapot – Client က Server ကို ကော်Zီတစ်ခွက်ပေးပါလို့ Request လုပ်လာခဲ့ရင် 418
+
+429 Too Many Requests – Server တွေမှာ လက်ခံနိုင်တဲ့ Request အရေအတွက် အကန့်အသတ် ကျော်သွားရင် 
+
+500 Internal Server Error – Client Request က အဆင်ပြေပေမယ့် Server ဘက်မှာ Error
+
+502 Bad Gateway – Server တွေဟာ အချင်းချင်း ဆက်သွယ်
+Server က လက်ခံရရှိပေမယ့် လိုအပ်လို့ နောက် Server ကိုထပ်ဆင့် ဆက်သွယ်တဲ့အခါ အဆင်မပြေဘူး
+
+503 Service Unavailable - တစ်ပြိုင်တည်း ဆက်သွယ်တဲ့ Client က သတ်မှတ် အရေအတွက် ကကျော်သွားရင် 
+
+Response Headers------------------------
+ Content-Type နဲ့ Location
+
+Request 
+POST /products
+Content-Type: application/json
+{ name: "Book", price: 4.99 }
+
+ Response 
+201 Created
+Content-Type: application/json
+Location: http://domain/products/3-----
+{ id: 3, name: "Book", price: 4.99 }
+
+
+• Access-Control-Allow-Credentials
+• Access-Control-Allow-Origin
+• Access-Control-Allow-Methods
+• Access-Control-Allow-Headers
+• Cache-Control
+• Content-Encoding
+• Content-Length
+• Content-Type
+• Expires
+• Server
+• Last-Modified
+• Location
+• Set-Cookie
+• WWW-Authenticate
+• X-Rate-Limit-Limit *
+• X-Rate-Limit-Remaining *
+• X-Rate-Limit-Reset
+
+Access-Control-* နဲ့ စတဲ့ Headers တွေအကြောင်းကိုတော့ CORS လို့ခေါ်တဲ့ နည်းပညာ
+ X-Rate-* နဲ့ စတဲ့ Headers တွေကတော့ Standard Headers တွေ မဟုတ်ကြပါဘူး၊ ဒါပေမယ့် API ဒီဇိုင်းအတွက် အသုံးများကြတဲ့ Custom Headers
+
+
+
+ JSON Array အနေနဲ့ ရှိတယ်ဆိုပါစို့။ ဒါကို အရှိအတိုင်း ပြန်ပေးမယ်ဆိုရင်
+ [
+{ id: 1, title: "React", price: 4.99 },
+{ id: 2, title: "Laravel", price: 4.99 },
+{ id: 3, title: "API", price. 4.99 }
+
+]
+
+
+အရှိအတိုင်း၊ ဒီအတိုင်းမပေးပဲ Data Envelope နဲ့ အုပ်
+{
+data: [
+{ id: 1, title: "React", price: 4.99 },
+{ id: 2, title: "Laravel", price: 4.99 },
+{ id: 3, title: "API", price. 4.99 }
+]
+}
+
+Status
+Code တွေ ရှိနေတာပဲ။ Status Code ကိုကြည့်လိုက်ယုံနဲ့ သိနေရပြီလေ။ no need so tr myo
+Data Envelope နဲ့ ထည့် ထူး
+{
+success: true,--
+total: 3,
+data: [
+{ id: 1, title: "React", price: 4.99 },
+{ id: 2, title: "Laravel", price: 4.99 },
+{ id: 3, title: "API", price. 4.99 }
+]
+}
+{
+success: false,
+errors: {
+code: 123,
+message: "Cannot get book list"
+}
+}
+
+
+အခန်း (၄) – RESTful API
+
+Representational State Transfer=======>REST က Architecture ဖြZစ်ပြီး HTTP က အဲ့ဒီ Architecture ကိုအသုံးပြုထားတဲ့ နည်း ပညာ
+RESTful Web Service ၊ REST Architecture Design လမ်းညွှန်ချက်များနဲ့ ကိုက်ညီ service
+
+1->Representable
+ အပြန်အလှန် Zလှယ်ကြတဲ့ အချက်အလက်တွေကို ကွန်ပျူတာ စနစ်တွေက နားလည်အလုပ်လုပ်နိုင်သလို၊ လူတွေကလည်း Zတ်ရှုနားလည်နိုင်ရမယ
+ /products/123/reviews **human and computer understand
+/xyz987/a(12)3+b45?q=678#rtyez **pc understand but human can't
+2->stateless
+နောက်တစ်ကြိမ်
+ဆက်သွယ်တဲ့အခါ Server က ဆက်သွယ်မှု အသစ်တစ်ခုအနေနဲ့ပဲ လက်ခံအလုပ်လုပ် http ka stateless p thr
+
+
+RESTful API
+API ဒီဇိုင်းတစ်ခု RESTful ဖြZစ်Zို့ဆိုတာ ဒီ URL နဲ့ Request တွေရဲ့Zွဲ့စည်းပုံကို စနစ်ကျအောင် သတ်မှတ်
+
+
+API URL->Resource(data), Action(chreate,view,update,delete,increase,change,cancel) နဲ့ ID( Resource Data Collection ထဲက Specific Resource unique key)
+RULE--
+1.API URL တွေမှာ စာလုံးအသေးတွေချည်းပဲသုံးရမယ်
+/products /articles /books /users
+
+2.Resource အမည်က Plural (အများကိန်း)
+
+3.Resource အမည်မှာ Special Character တွေနဲ့ Space ma ya (instead of space use dash-)
+/junior-engineers /language-books /travel-records /management-jobs
+
+4.API URL မှာ Resource နဲ့ ID ပဲ ပါရမယ်ဆိုတဲ့ သဘောပါ။
+           /products                 /products/123
+GET Get all products.                Get product with id 123
+POST Create a product
+PUT Update many products at once    Update product with id 123
+PATCH Update many products at once  Update product with id 123
+DELETE Delete many products         Delete product with id 123
+ -increase, toggle, tag, verify, undoလိုအပ်လာရင်
+ /product/increase/123
+
+ 5.Sub Resource(Product ရဲ့ Reviews)
+ /products/123/reviews
+
+ 6.ရှေ့ကနေ /api ဆိုတဲ့ Prefix နဲ့ URL တွေကို စပေးချင်ရင် ပေးလို့ရ pay thint simple url or api url
+
+ 7.URL မှာ API Version ပါသင့်ပါတယ် (ဥပမာ /api/v1)
+ /api/v1/products/123
+
+ 8.Sorting, Filter နဲ့ Paging လုပ်ဆောင်ချက်တွေ အတွက် URL Query
+ --Sorting
+ /products?sort[price]=1    ***Products တွေကို priceနဲ့ Sorting စီပြီး လိုချင
+ /students?sort[name]=1&sort[age]=-1  ***name နဲ့လည်းစီမယ် age နဲ့လည်းစီမယ
+ ***ရိုးရိုးစီရင် 1 ကိုသုံးပြီး ပြောင်းပြန်စီရင် -1
+ --Filter
+ /products?filter[name]=Book&filter[price][$lt]=9
+ ***Grater Than, Less Than, Not စတဲ့ Filter Operator တွေအတွက် [$gt] [$gte] [$lt] [$lte] [$not]
+ --Paging
+   1 Client ဘက်က Paging ကို သတ်မှတ် 2 serverဘက်ကပဲ သတ်မှတ်ချက်အတိုင်း
+  /products?skip=5&limit=10   ***Client ဘက်က ဘယ်ကစမလဲ ရွေးလို့ရသလို၊ တစ်ကြိမ်မှာ ဘယ်နှစ်ခုလိုချင
+  /products?page=2   ***Page Number ကိုပဲပေး
+  *******Sorting, Filter နဲ့ Paging
+  /products?filter[category]=4&sort[name]=1&sort[price]=-1&page=2
+
+  /products?fields=name,price,description
+  Products ရဲ့ ရှိသမျှ Field အားလုံးကိုမယူဘဲ name, price နဲ့ description ပဲလိုချင
+
+
+  အခန်း (၅) – Response Structure
+
+  Array ကို JSON ပြောင်းပေးနိုင်တဲ့ လုပ်ဆောင်ချက်တွေ၊ Object ကို JSON ပြောင်းပေးနိုင်တဲ့လုပ်ဆောင်ချက် auto include
+
+   Response Envelope ထဲမှာ meta, data, links နဲ့ errors
+
+-->GET METHOD
+-------------------------
+
+Request
+GET /students
+Content-Type: application/json
+ Response 
+200 OK
+Content-Type: application/json
+{
+meta: {
+total: 15
+},
+data: [
+{ … }, { … }, { … }, { … }, { … }
+],
+links: {
+self: "http://domain/students",
+students: "http://domain/students",
+classes: "http://domain/classes",
+grades: "http://domain/students/grades"
+}
+}
+
+
+C နဲ့ /studetns/:id ဆိုတဲ့ API URL-----
+
+Request 
+GET /students/3
+Content-Type: application/json
+ Response 
+200 OK
+Content-Type: application/json
+{
+meta: {
+id: 3
+},
+data: { ... }
+}
+
+
+ 
+ errors ပါရင် data မပါရဘူး။ data ပါရင် errors မပါရဘူး Error ဖြZစ်ခဲ့ရင်တော့ Response က ဒီလိုဖြZစ်နိုင်ပါတယ်။
+Response 
+404 Not Found
+Content-Type: application/json
+{
+meta: {
+id: 3
+},
+errors: {
+message: "Student with id 3 doesn't exists."
+}
+}
+  "or"
+
+Response 
+401 Unauthorized
+Content-Type: application/json
+{
+meta: {
+id: 3
+},
+errors: {
+message: "Unauthorize access."
+},
+links: {
+self: "http://domain/studnets/3",
+login: "http://domain/login"
+}
+}
+
+Sorting, Filter နဲ့ Paging လုပ်ဆောင်ချက်
+------------------------------------
+Request 
+GET /students?filter[grade]=7&sort[name]=1&page=2
+Content-Type: application/json
+ Response 
+200 OK
+Content-Type: application/json
+{
+meta: {
+filter: { grade: 7 },
+sort: { name: 1 },
+page: 2,
+total: 25,
+limit: 5
+},
+data: [
+{ ... }, { ... }, { ... }, { ... }, { ... }
+],
+links: {
+ self: "/students?filter[grade]=7&sort[name]=1&page=2",
+ first: "/students?filter[grade]=7&sort[name]=1&page=1",
+last: "/students?filter[grade]=7&sort[name]=1&page=5",
+next: "/students?filter[grade]=7&sort[name]=1&page=3",
+prev: "/students?filter[grade]=7&sort[name]=1&page=1"
+}
+}
+
+if error
+
+Response 
+400 Bad Request
+Content-Type: application/json
+{
+errors: {
+message: "Unable to parse parameters."
+}
+}
+
+POstmethod
+---------------
+
+Request 
+POST /students
+Content-Type: application/json
+{
+name: "Tom", age: 12, grade: 6
+}
+ Response 
+201 Created
+Content-Type: application/json
+Location: /students/9
+{
+meta: {
+id: 9
+},
+data: {
+id: 9, name: "Tom", age: 12, grade: 6
+}
+}
+အချက်အလက်မပြည့်စုံရင် 400 Bad Request ကိုပြန်ပေးနိုင်ပါတယ်။ ထည့်ခွင့်မရှိဘဲ လာထည့်နေတာဆိုရင် 401 Unauthorized နဲ့ 403 Forbidden တို့ကို သင့်တော်သလို ပြန်ပေးနိုင်ပါတယ်။ အကယ်၍ ID ပေးပြီး ထည့်ခိုင်းနေရင်တော့ 409 Conflict
+
+ Request 
+POST /students/8
+Content-Type: application/json
+{
+name: "Tom", age: 12, grade: 6
+}
+ Response 
+409 Conflict
+Content-Type: application/json
+{
+errors: {
+message: "Incorrect request. Giving ID."
+}
+}
+
+Put and PATCH
+--------------------
+ PUT နဲ့ပေးပို့လာတဲ့အခါ နဂို Data ကို ပေးလာတဲ့ Data နဲ့ အစားထိုးပြီး ပြင်ပေးရ
+မှာပါ။ PATCH နဲ့ပေးပို့လာရင်တော့ တစ်စိတ်တစ်ပိုင်း ပြင်ပေးရမှာပါ။
+
+{ id: 8, name: "Tom", age: 12, grade: 6 }***original data
+
+PUT METHOD(all change data)
+Request 
+PUT /students/8
+Content-Type: application/json
+{
+name: "Tommy"
+}
+A P I – လိမေု - တိမေု - ရှင်း – အခန်း (၅) – Response Structure 41
+ Response 
+200 OK
+Content-Type: application/json
+{
+meta: {
+id: 8
+},
+data: {
+id: 8, name: "Tommy"---
+}
+}
+
+
+PATCH METHOD(specific change data)
+Request 
+PATCH /students/8
+Content-Type: application/json
+{
+name: "Tommy"
+}
+ပေးလိုက်တဲ့ Request Body မှာ name တစ်ခုပဲပါတာကို သတိပြုပါ။ Update လုပ်တဲ့အလုပ် လုပ်ပြီး
+နောက် ပြန်ရမယ့် Response က ဒီလိုပုံစံဖြZစ်မှာပါ။
+ Response 
+200 OK
+Content-Type: application/json
+{
+meta: {
+id: 8
+},
+data: {
+id: 8, name: "Tommy", age: 12, grade: 6----
+}
+}
+
+202 Acceptedကိုသုံးတာသတိပြုပါ ။ အဓိပ္ပါယ်က၊ပေးပို့တာ မမှန်ပေမယ့် လက်ခံပေးလိုက်တယ်ဆိုတဲ့ အဓိပ္ပါယ်
+Request 
+PUT /students/9
+Content-Type: application/json
+{
+name: "Mary", age: 12, grade: 6
+}
+
+Response 
+202 Accepted
+Content-Type: application/json
+{
+meta: {
+id: 9
+},
+data: {
+id: 9, name: "Mary", age: 12, grade: 6
+}
+}
+
+DELETE METHOD
+-------------------
+Request 
+DELETE /students/8
+Request 
+204 No Content
+
+
+Request 
+DELETE /students/8
+Response 
+200 OK
+Content-Type: application/json
+{
+meta: {
+id: 8,
+message: "Successfully deleted."
+}
+}
+
+
+
+RELATIONSHIPS AND INCLUDED
+----------------------------
+Data တွေက attributes ဖြZစ်သွားပြီး Relationship Data တွေက relationships
+{
+meta: {
+id: 1
+},
+data: {
+
+attributes: {
+title: "API Book",
+author: "Ei Maung",
+price: 4.99,
+category_id: 2
+},
+relationships: {
+category: {
+id: 2,
+name: "Technology"
+}
+}
+
+},
+
+included: {
+
+author: {
+name: "Ei Maung",
+bio: " ... "
+}
+
+}
+}
+
+
+Table Relationship စနစ်ကို မသုံးတဲ့ MongoDB လို NoSQL Database
+{
+meta: {
+id: 1
+},
+data: {
+title: "API Book",
+author: "Ei Maung",
+price: 4.99,
+category: {
+id: 2,
+name: "Technology"
+}
+},
+included: {
+author: {
+name: "Ei Maung",
+bio: " ... "
+}
+}
+}
+
+->RATE LIMITING
+--------------------
+API တွေမှာ Rate Limit ထားရပါတယ်။ RateLimit မထားရင်၊ Client တွေက အထိမ်းအကွပ်မရှိ Request ဝိုင်းလုပ်ကြတဲ့အခါ API Server ကို Abuse လုပ်သလိုဖြZစ်ပြီး Server က မနိုင်ဝန်ထမ်း
+့ ကိုယ့် Server ရဲ့ Capacity တို့ ကိုယ့် Service ရဲ့ Processing Power လိုအပ်ချက်တို့ကိုယ့် User တွေရဲ့ လိုအပ်ချက်တို့နဲ့ ချင့်ချိန်ပြီး သတ်မှတ
+
+LIMIT Htr trko client ko thi say chin yin
+ X-Rate-Limit-Limit, X-Rate-LimitRemaining နဲ့ X-Rate-Limit-Reset
+
+X-Rate-LimitLimit ကိုသုံးပြီး တစ်မိနစ်မှာ Request အကြိမ်ရေ ဘယ်လောက် ကန့်သတ်ထားသလဲ အသိပေး
+X-Rate-Limit-Remaining ကို သုံးပြီးတော့ အကြိမ်ရေ ဘယ်လောက်ကျန်သေးလဲ
+X-Rate-Limit-Reset ကိုသုံးပြီးတော့ နောက်အချိန် ဘယ်လောက်ကြာတဲ့အခါ Limit ကို Reset ပြန်လုပ်ပေး
+
+Response 
+200 OK
+Content-Type: application/json
+X-Rate-Limit-Limit: 60
+X-Rate-Limit-Remaining: 58
+X-Rate-Limit-Reset: 30
+
+အကြိမ်အရေအတွက်ကို (၆၀) လို့ ကန့်သတ်ထားပြီး နောက်ထပ် (၅၈) ကြိမ် ကျန်သေးတယ စက္ကန့် (၃၀) အကြာမှာ Reset
+
+PHP မှာဆိုရင် Laravel လို Full-fledged Framework တွေရှိသလို Slim လို့ API Framework တွေလည်း ရှိ
+Ruby မှာဆိုရင်လည်း Rails လို Framework ကြီးတွေရှိသလို Sinatra လို Framework လေးတွေလည်း ရှိ
+Python မှာဆိုရင်လည်း Django လို့ Framework ကြီးတွေရှိသလို Flask လို Framework လေး
+JavaScript မှာဆိုရင်တော့ ExpressJS လို မူလအစဉ်အလာ Framework တွေရှိသလို NextJS တို့လို ခေတ်ပေါ် Server-side Rendering
+

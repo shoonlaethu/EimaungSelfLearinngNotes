@@ -1,0 +1,6 @@
+ mongojs ကိုသုံးZို့ ရွေးပါတယ် ဖြစ်လို့လဲ ဆိုတော့ သူက Mongo Shell ထဲက Command တွေအတိုင်း သုံးလို့ရအောင် စီစဉ်ပေးထား
+  body-parser package need
+
+ Request Body ကို စီမံတယ်ဆိုတာ Request နဲ့အတူ ပါဝင်လာတဲ့ JSON String တွေURLEncoded String တွေကို JSON Object ပြောင်း
+ >npm i mongojs body-parser
+

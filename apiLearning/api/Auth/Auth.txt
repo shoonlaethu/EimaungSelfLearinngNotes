@@ -1,0 +1,72 @@
+Authentication/Authorization 
+1. HTTP Basic
+2. Session
+3. Token
+4. JWT
+5. OAuth2
+
+1. HTTP Basic-------------
+Client ကလိုအပ်တဲ့ Username, Password ကို Header မှာ ထည့်ပို့ခြင်းဖြZစ်ပြီး 
+Request ပြုလုပ်တဲ့ အကြိမ်တိုင်းမှာ ထည့်ပို့ပေးZို့ လိုအပ်ပါတယ် ။
+
+2. Session-----------
+ REST ရဲ့ မူသဘောအရ Stateless ဖြZစ်ရမယ်ဆိုတဲ့ သတ်မှတ်ချက် ရှိထားတဲ့အတွက်
+Session က ဒီမူနဲ့ မကိုက်လို api mhr thate ma use use loe ya pay mae
+1. ပထမတစ်ကြိမ် Client က Username, Password ကို Request နဲ့အတူ ပေးရပါမယ်။
+2. Server က စစ်ပြီး မှန်တယ်ဆိုရင် User နဲ့ သက်ဆိုင်တဲ့ အချက်အလက်တွေကို Session ထဲမှာ
+သိမ်းလိုက်ပါတယ်။
+3. Server က Session ID ကို Response နဲ့အတူ ပြန်ပို့ပေးပါတယ်။
+4. Client က လက်ခံရရှိတဲ့ Session ID ကို Cookie ထဲမှာ သိမ်းပါတယ်။
+5. နောက်ပိုင်းမှာ Username, Password ထပ်ပေးစရာမလိုတော့ပါဘူး။ Cookie ထဲမှာသိမ်းထားတဲ့
+Session ID ကိုပဲ ပြန်ပို့ရတော့မှာပါ။ Session ID နဲ့စစ်ကြည့်လိုက်လို့ Session ထဲမှာ User ရဲ့
+အချက်အလက်တွေ ရှိနေသ၍ Authenticate ဖြZစ်တယ်လို့ လက်ခံပြီး Server က အလုပ်လုပ်ပေး
+သွားမှာ မို့လို့ပါ။
+
+3. Token-----------
+ API မှာ ကျယ်ကျယ်ပြန့်ပြန့်သုံး Cookie တွေSession တွေ မလို
+ • ပထမတစ်ကြိမ် Client က Username, Password ကို Request နဲ့အတူ ပေးရပါတယ်။
+• Server က စစ်ပြီး မှန်တယ်ဆိုရင် Token တစ်ခု Generate လုပ်ပြီး Response ပြန် ပေးပါတယ် ။
+• Token ကို User Table ထဲမှာလည်း သိမ်းထားကောင်း ထားလိုက်နိုင်လိုက်ပါတယ်။
+• နောက်ပိုင်းမှာ Client က Username, Password ပေးစရာမလိုတော့ပါဘူး၊ ရထားတဲ့ Token ကို
+ပဲပြန်ပေးရတော့မှာပါ။ Server က Token ကိုစစ်ကြည့်ပြီး မှန်ကန်တယ်so Authenticate
+
+4. JWT(JSON Web Token)-----------
+ Token က Random Hash Value တစ်ku does't include info
+ User Information တွေကို Encrypt လုပ် token include info
+ထားတဲ့ Token
+
+5. OAuth2-----------
+OAuth မှာ အစိတ်အပိုင်း ( ၄) ပိုင်း
+   1. User (သင်)
+   2. Client Application (Facebook နဲ့ Login ဝင်ရတဲ့ App)
+   3. Resource Server (Facebook)
+   4. Authorization Server (Facebook Developer API)
+
+App တစ်ခုကို သုံးချင်လို့Zွင့်လိုက်တယ်။ Login with
+Facebook ဆိုတဲ့လုပ်ဆောင်ချက်ပါတယ်။ ဒါကြောင့် အဲ့ဒီ App ကိုသုံးZို့ Facebook နဲ့ Login ဝင်လို့ရမယ်။
+နှိပ်လိုက်တယ်။ Dialog Box ပေါ်လာပြီး Facebook နဲ့ Login ဝင်တာကို Accept လုပ်မှာလားလို့
+Facebook Developer API ကလာမေးတယ်။ Accept လုပ်ပေးလိုက်ရင် အဲ့ဒီ App ကို ကိုယ့်Facebook
+Account နဲ့ ဝင်သုံးလို့ ရ
+က ကိုယ့် API က ပေးထားတဲ့ Auth နဲ့ တစ်ခြား App မှာ သွားပြီးသုံးလို့ ရ
+
+
+
+AUTH PNG explain-----------------
+
+1. ပထမဆုံးအနေနဲ့၊ Facebook နဲ့ Login ဝင်Zို့ User က ခွင့်ပြုမပြုမေးရပါတယ်။
+2. User က Allow လုပ်ပြီး ခွင့်ပြုလိုက်တဲ့အခါ Authorization Code ထွက်လာပါတယ်။
+3. App က Authorization Code ကိုသုံးပြီး Facebook Developer API ကို User ရဲ့ အချက်အလက်
+တွေAccess လုပ်ခွင့် တောင်းပါတယ်။
+a) App ကို Developer API မှာအရင် Register လုပ်ထားZို့လည်း လိုပါသေးတယ်။ ဒီတော့ မှ 
+Client ID တွေဘာတွေထက်လာမှာပါ။
+b) Client ID တွေဘာတွေသေသေချာချာ ပြည့်စုံမှန်ကန်အောင်ပါမှ User ရဲ့ အချက်အလက်ကို 
+Third-party ဘယ် App က ယူသလဲဆိုတဲ့ မှတ်တမ်းကိုရမှာမို့လို့ပါ။
+4. Authorization Code, Client ID နဲ့ အချက်အလက် ပြည့်စုံမှန်ကန်တယ်ဆိုရင် Developer API
+က Access Token ပြန်ထုတ်ပေးပါတယ်။
+5. App က လိုချင်တဲ့ User ရဲ့အချက်အလက်ကို အဲ့ဒီ Access Token ကိုသုံးပြီး ရယူလို့ရသွား
+
+
+ jsonwebtoken လို့ခေါ်ပါတယ်။ စမ်းသပ်နိုင်Zို့အတွက် ရေးသားလက်စ ပရောဂျက်ထဲမှာ အခု
+လို Install
+>npm i jsonwebtoken
+

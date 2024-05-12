@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hi</h1>
+</body>
+<script src="../mongojs/index.js">
+
+    //---------------specific
+//    app.get("/api/records", function(req, res) {
+//     res.append("Access-Control-Allow-Origin", "*");
+//     res.append("Access-Control-Allow-Methods", "*");
+//     res.append("Access-Control-Allow-Headers", "*");
+//    });
+
+///api/records URL တစ်ခုတည်းအတွက်ပဲ CORS Headers တွေ သတ်မှတ်ထား
+// တာပါ။ ဒါကြောင့် တစ်ခြား URL တွေအတွက် အလုပ်လုပ်မှာ မဟုတ်ပါဘ
+//    app.use(function(req, res, next) {
+//     res.append("Access-Control-Allow-Origin", "*");
+//     res.append("Access-Control-Allow-Methods", "*");
+//     res.append("Access-Control-Allow-Headers", "*");
+//     next();
+//    });
+
+//--------------------or------------------------
+
+
+//    ကိုယ့်ဘာသာ မရေးချင်ဘူးဆိုရင်လည်း npm i cors
+// cors လို့ခေါ်တဲ့ Package တစ်ခုရှိပါတယ်။ install လုပ်ပြီး သုံးလို့ရပါတယ်။
+const cors = require("cors");
+app.use(cors());
+app.use(cors({
+ origin: ["http://a.com", "http://b.com"],
+ methods: ["GET", "POST"],
+ allowHeaders: ["Authorization", "Content-Type"] 
+}));
+
+fetch("http://localhost:8000/api/records")
+  .then(function(res) {
+    return res.json();
+    })
+    .then(function(json) {
+    console.log(json);
+    });
+
+
+    
+
+    
+   </script>
+
+</html>

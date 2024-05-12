@@ -1,0 +1,166 @@
+KHTML Webkit Blink
+
+ Browser မှာ Rendering Engine, JavaScript Engine နဲ့ UI တို့ ပေါင်းစပ်ပါဝင်တယ်လို့ ပြော
+ခဲ့ပါတယ်။ UI ကတော့ Browser Menu တွေ၊ Toolbar တွေ၊ URL Bar, Bookmark, History, Download
+စတဲ့ User တွေမြင်တွေ့ထိပြီး အသုံးပြုတဲ့ အရာ
+
+ Google က Chromium ကို ထွင်တဲ့အခါ
+Rendering Engine အနေနဲ့ Webkit ကို ယူသုံးခဲ့ပေမယ့် JavaScript Engine ကိုတော့ သူဘာသာ အသစ်
+ထွင်ပြီး ထည့်ခဲ့ပါတယ်။ အဲ့ဒီ Engine ကို V8 ကို သုံးပြီးတော့ Ryan Dahl လို့ခေါ်တဲ့ ဆော့Z်ဝဲအင်ဂျင်နီယာ
+
+ Node ဆိုတာ JavaScript Run-Time နည်း 
+ပညာဖြZစ်ပါတယ်။ Node ဆိုတာ JavaScript မဟုတ်ပါဘူး။ Node ဆိုတာ JavaScript ကုဒ်တွေကို Run
+ပေးနိုင်တဲ့ နည်းပညာပါ။Non-blocking I/O လို့ခေါ်တဲ့ နည်းစနစ်
+
+const fs = require("fs");
+console.log("Some processes...");
+fs.readFile("data.txt", "utf-8", function(err, data) {
+console.log(data);
+});
+console.log("Some more processes...");
+။ Node ကတော့ Asynchronous ရေးဟန်နဲ့အတူ Process က I/O ကို စောင့်စရာအောင်
+တီထွင်ထား
+Run ကြည့်ရင် ရလဒ်က ဒီလိုရမှာပါ။
+Some processes…
+Some more processes…
+>> data entries…
+
+Node Modules
+- https://nodejs.org/en/docs/
+
+CommonJS ခေါ် Node က မူလအစကတည်းက အသုံးပြုခဲ့တဲ့ ရေးနည်းနဲ့၊ နောက်ပိုင်း ES6 လို့
+ခေါ်တဲ့ JavaScript နည်းပညာသစ်နဲ့တူ ပါဝင်လာတဲ့ Module ရေးနည်း
+
+
+- https://gist.github.com/eimg/cf2ac1f2731f77cde166bb764eef7634
+
+
+ CommonJS Module 
+// math.js
+function add(a, b) {
+return a + b;
+}
+module.exports = add;
+
+ ES6 Module 
+// math.js
+function add(a, b) {
+return a + b;
+}
+export default add;
+
+ CommonJS Module 
+const add = require("./math");
+console.log( add(1, 2) ); // => 3
+ ES6 Module 
+import add from "./math";
+console.log( add(1, 2) );
+--------------------------------
+
+ CommonJS Module 
+const PI = 3.14;
+function add(a, b) {
+return a + b;
+}
+module.exports = { PI, add };
+ ES6 Module 
+const PI = 3.14;
+function add(a, b) {
+return a + b;
+}
+export { PI, add };
+
+'or'
+
+ CommonJS Module 
+exports.PI = 3.14;
+exports.add = function (a, b) {
+return a + b;
+}
+ ES6 Module 
+export const PI = 3.14;
+export function add(a, b) {
+return a + b;
+}
+
+ CommonJS Module 
+const math = require("./math");
+console.log( math.PI ); // => 3.14
+console.log( math.add(1, 2) ); // => 3 
+ ES6 Module 
+import { PI, add } from "./math";
+console.log( PI ); // => 3.14
+console.log( add(1, 2) ); // => 3
+
+ ES6 ရေးထုံးနဲ့ ရေးချင်ရင်ိုင် Extension ကို .mjs
+
+
+ type of module
+ -----------------
+ Node ရဲ့ Build-in Module 
+ customize Module
+ npm help module
+
+ NPM
+npm နဲ့ လုပ်မယ့်အလုပ် (၃)
+1ပရောဂျက် တည်ဆောက်
+2လိုအပ်တဲ့ Package တွေကို ရယူမ
+3Script တွေRun 
+
+>npm init
+package.json Zိုင် ပါဝင်သွား
+တာနဲ့ NPM Project တစ်ခု ဖြZစ်သွားပါပြီ။
+
+ >npm init -y ဆိုပြီး နောက်ဆုံးက -y Option လေးထည့်ပေးလိုက်ရင် ဘာမှ လာမမေး
+တော့ဘဲ package.json ကို Default Value တွေနဲ့တည်ဆောက
+
+npm i express
+express အလုပ်
+လုပ်နိုင်Zို့အတွက် ဆက်စပ်လိုအပ်နေတဲ့ Dependency Package တွေကိုပါ အလိုအလျှောက် ရယူပေးသွား
+dependencies ဆိုတဲ့အပိုင်းတစ်ပိုင်း တိုးလာပြီး အထဲမှာ express ပါဝင်နေတာကို တွေ့ရပါလိမ့်
+မယ်။ အဲ့ဒါကတော့ လက်ရှိပရောဂျက်ဟာ express ရှိမှ အလုပ်လုပ်တယ်လို့ သူ့အလိုလို သတ်မှတ်လိုက
+Development Dependency
+eslint လို နည်းပညာမျိုးပါ။ သူက 
+ရေးထားတဲ့ ကုဒ်ထဲမှာရှိနေတဲ့ အမှားတွေကို ရှာပေးနိုင် ကုဒ်တွေရေးနေစဉ် Development Time မှာပဲ လိုအပ်တဲ့သဘောပ
+>npm i -D eslint
+
+
+ "fun": "echo \"NPM scripts are fun\""
+ >npm run fun
+ အခုနမူနာ install လုပ်ပြတဲ့ Package တွေကို Local Package
+ Global Package ခေါ် System Wide ကြိုက်တဲ့နေရာကနေ ချိတ်သုံးလို့ရအောင်လည်း install
+ >npm i -g eslint
+
+Global Package အနေနဲ့ Install လုပ်ထားရင် အခုလို ရိုးရိုးCommand
+>eslint --init
+>eslint math.js
+
+ Local Package အနေနဲ့ Install လုပ်ထားတာ ဆိုရင်တော့npx ကိုသုံးပြီး အခုလိုRun
+>npx eslint --init 
+>npx eslint math.js
+
+>npm i express-validator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

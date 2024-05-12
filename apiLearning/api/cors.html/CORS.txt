@@ -1,0 +1,11 @@
+Cross-Origin Resource Sharing--->လုံခြုံရေးအစီအမံတစ်ခုပါ။
+ Origin (Host, Domain, Port) မတူရင် Request တွေ ပို့ခွင့်မပြုခြင်း
+
+ Client က locahost မှာအလုပ်လုပ်နေပြီး Server ကလည်း localhostမှာပဲအလုပ်လုပ်နေတာဆိုရင် Request တွေပေးပို့လို့ ရ
+  Client က localhost:3000 မှာ အလုပ်လုပ်နေပြီး Server က localhost:8000 မှာအလုပ်လုပ်နေတာဆိုရင် CORS နဲ့ ညိ
+
+ခွင့်ပြုတယ်ဆိုရင် Server က
+Access-Control-Allow-* နဲ့ စတဲ့ Headers တွေကို ပြန်ပို့ပေးပါတယ်။ ခွင့်ပြုတဲ့ Origin တွေ၊ ခွင့်
+ပြုတဲ့ Methods တွေ၊ ခွင့်ပြုတဲ့ Headers တွေကို စာရင်းနဲ့ ပြန်ပို့တာပါ။ ဒီလို Server က ခွင့်ပြုတယ်ဆို
+တော့မှ Browser က မူလပေးပို့လိုတဲ့ Request တွေကို ဆက်ပြီးပေးပို့ပေးသွားမှာပဲ ဖြZစ်ပါတယ်။ ဒီ
+သဘောသဘာဝကို Preflight Request

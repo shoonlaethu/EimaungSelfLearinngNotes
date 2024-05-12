@@ -1,0 +1,136 @@
+အခန်း (၆) – MongoDB
+
+MongoDB လို့ ခေါ်တဲ့ နည်းပညာကို အသုံးပြုမှာပါ။MongoDB ဟာ NoSQL Database Document Database
+MongoDB မှာတော့ Table နဲ့ Table Structure တွေ မရှိဘဲ Record တစ်ခုကို Document တစ်ခုပုံစံမျိုးနဲ့ သိမ်း
+
+cdmongod က MongoDB Server ဖြZစ်ပြီးတော့ mongo က MongoDB Client ပါ (MongoShell
+
+mongod --install
+mongod --dbpath=C:\mongodata
+mongo
+
+CRUD
+
+ show dbs
+ use travel
+
+
+ SQL Database တွေမှာ Data တွေကို Table MongoDB မှာ Data တွေကို Collection
+  b.records.insert({ name: "Bobo", age: 23 })
+
+Data တွေကို ပြန်ကြည့်ချင်ရင် db.collection.find()
+db.records.find()
+{ "_id" : ObjectId("5f62433057f76967c5d976ee"), "name" : "Bobo", "age" : 23 }
+
+ _id လို့ ရှေ့ကနေ Underscore လေးခံပြီး ပေးပါတယ်။ UUID ခေါ် Universally Unique ဖြZစ်တဲ့ ID ကို MongoDB က ထုတ်
+
+ObjectId("66402a1d74d40465d4a78601").getTimestamp()
+ db.records.remove({ name: "Bobo" })
+
+ > db.records.insert([
+{name: "Bobo", nrc: "A0131", from: "Yangon", to: "Mandalay", with: "5B9876"},
+{name: "Nini", nrc: "A1476", from: "Yangon", to: "Bago", with: "3G6457"},
+{name: "Coco", nrc: "B0487", from: "Bago", to: "Yangon", with: "4L2233"},
+{name: "Mimi", nrc: "C1987", from: "Yangon", to: "Mandalay", with: "9E4343"},
+{name: "Nono", nrc: "B0098", from: "Bago", to: "Yangon", with: "4L2233"},
+{name: "Momo", nrc: "C0453", from: "Yangon", to: "Bago", with: "3G6457"}
+])
+
+ db.records.find().pretty()
+
+Filter 
+db.records.find({ from: "Yangon" })
+// AND Filter
+> db.records.find({ from: "Yangon", to: "Bago" })
+// OR Filter
+> db.records.find({ 
+ $or: [
+ { from:"Yangon" }, 
+ { to: "Yangon" }
+ ]
+})
+
+// Greater Than တို့ Less Than တို့လို Filter  $gt အစား $lt,$gte, $lte, $not
+> db.products.find({ price: { $gt: 9 } })
+
+Sorting 
+> db.records.find().sort({ name: 1 })
+name: 1 လို့ပြောလိုက်တာဟာ name နဲ့စီမယ်
+> db.records.find().sort({ from: 1, name: 1 })
+from နဲ့အရင်စီပြီးနောက် name နဲ့ ထပ်စီပေးမှာပါ။ ပြောင်းပြန် Descending ပုံစံ စီချင်ရင် 1အစား -1
+
+Paging လုပ်ဆောင်ချက်အတွက် skip() နဲ့ limit()
+> db.records.find().skip(1).limit(3)
+ာ့ skip(1) လို့ပြောထားလို့ (၁) ကြောင်းကျော်လိုက်ပြီးမှ (၃) ကြောင်းယူ
+
+> db.records.find({}, {name: 1, nrc: 1})
+save() က PUT လိုမျိုး တစ်ခုလုံးအစားထိုးပြီး Update လုပ်မှာပါ။ update() ကတော့ PATCH
+
+> db.records.save({ name: "Test", age: 22 })
+WriteResult({ "nInserted" : 1 })
+> db.records.find({ name: "Test" })
+{ "_id" : ObjectId("5f6250f28873b1d7bff76277"), "name" : "Test", "age" : 22 }
+ပေးလိုက်တဲ့ Data မှာ _id မပါတဲ့အတွက် save() က အသစ်တစ်ခု ထပ်ထည့်ပေးသွားတာကို တွေ့ရ
+မှာဖြZစ်ပါတယ်။ _id ပေးပြီး နောက်တစ်ခါ save() လုပ်ကြည့်ပါမယ်။
+> db.records.save({ "_id" : ObjectId("5f6250f28873b1d7bff76277"), "name" : 
+"Test2" })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.records.find({ name: "Test2" })
+{ "_id" : ObjectId("5f6250f28873b1d7bff76277"), "name" : "Test2" }
+
+> db.records.remove({ name: "Test2" })
+
+UPDATE
+ Parameter (၃) ခုပေးရပါတယ်။ Filter, Data နဲ့ Option
+ > db.records.update(
+ { to: "Bago" },
+ { $set: { to: "Bagan" } },
+ { multi: true }
+)
+WriteResult({ "nMatched" : 3, "nUpserted" : 0, "nModified" : 3 })
+
+
+{
+name: "Bobo", 
+nrc: "A0131",
+trip: {
+from: "Yangon", 
+to: "Mandalay", 
+vehicle: {
+type: "car",
+license: "5B9876" 
+}
+}
+}
+Filter တွေလုပ်တဲ့အခါ ဘယ်လိုလုပ်ရလဲ 
+> db.records.find({ "trip.vehicle.type": "car" })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
